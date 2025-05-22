@@ -1,27 +1,24 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 int main() {
-    string s;
-    cin >> s;
+    int T;
+    cin >> T;
 
-    int lower = 0, upper = 0;
+    for (int caseNum = 1; caseNum <= T; ++caseNum) {
+        vector<int> salaries(3);
+        for (int i = 0; i < 3; ++i) {
+            cin >> salaries[i];
+        }
 
-    for (char c : s) {
-        if (islower(c))
-            lower++;
-        else
-            upper++;
+        // Sort the vector
+        sort(salaries.begin(), salaries.end());
+
+        // The middle salary is at index 1
+        cout << "Case " << caseNum << ": " << salaries[1] << endl;
     }
 
-    if (upper > lower) {
-        for (char &c : s)
-            c = toupper(c);
-    } else {
-        for (char &c : s)
-            c = tolower(c);
-    }
-
-    cout << s << endl;
     return 0;
 }
